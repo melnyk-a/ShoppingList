@@ -37,10 +37,8 @@ namespace ShoppingList
 
         private void ShoppingListCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int selectedIndex = shoppingListCheckedListBox.SelectedIndex;
-            deleteButton.Enabled = selectedIndex != -1;
-            upButton.Enabled = selectedIndex != 0;
-            downButton.Enabled = selectedIndex != shoppingListCheckedListBox.Items.Count - 1;
+            UpdateUpDownButtonsState();
+            UpdateDeleteButtonState();
         }
 
         private void UpButton_Click(object sender, EventArgs e)
@@ -94,6 +92,25 @@ namespace ShoppingList
             shoppingList.SetItemChecked(secondIndex, tempState);
 
             shoppingList.SelectedIndex = secondIndex;
+        }
+
+        private void UpdateUpDownButtonsState()
+        {
+            int selectedIndex = shoppingListCheckedListBox.SelectedIndex;
+            if (selectedIndex == -1)
+            {
+                upButton.Enabled = downButton.Enabled = false;
+            }
+            else
+            {
+                upButton.Enabled = selectedIndex != 0;
+                downButton.Enabled = selectedIndex != shoppingListCheckedListBox.Items.Count - 1;
+            }
+        }
+        private void UpdateDeleteButtonState()
+        {
+            int selectedIndex = shoppingListCheckedListBox.SelectedIndex;
+            deleteButton.Enabled = selectedIndex != -1;
         }
     }
 }

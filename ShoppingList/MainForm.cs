@@ -96,6 +96,12 @@ namespace ShoppingList
             shoppingList.SelectedIndex = secondIndex;
         }
 
+        private void UpdateDeleteButtonState()
+        {
+            int selectedIndex = shoppingListCheckedListBox.SelectedIndex;
+            deleteButton.Enabled = selectedIndex != -1;
+        }
+
         private void UpdateUpDownButtonsState()
         {
             int selectedIndex = shoppingListCheckedListBox.SelectedIndex;
@@ -108,12 +114,6 @@ namespace ShoppingList
                 upButton.Enabled = selectedIndex != 0;
                 downButton.Enabled = selectedIndex != shoppingListCheckedListBox.Items.Count - 1;
             }
-        }
-
-        private void UpdateDeleteButtonState()
-        {
-            int selectedIndex = shoppingListCheckedListBox.SelectedIndex;
-            deleteButton.Enabled = selectedIndex != -1;
         }
     }
 }

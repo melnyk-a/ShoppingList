@@ -12,7 +12,7 @@ namespace ShoppingList
             this.item = item;
         }
 
-        public override bool Equals(Object obj)
+        public override bool Equals(object obj)
         {
             return Equals(obj as ShoppingItemWrapper);
         }

@@ -43,7 +43,6 @@ namespace ShoppingList
             UpdateDeleteButtonState();
         }
 
-
         private void UpButton_Click(object sender, EventArgs e)
         {
             int selectedIndex = shoppingListCheckedListBox.SelectedIndex;

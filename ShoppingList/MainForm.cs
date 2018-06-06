@@ -22,11 +22,13 @@ namespace ShoppingList
         private void AddItemTextBox_TextChanged(object sender, EventArgs e)
         {
             addButton.Enabled = CanAdd(addItemTextBox.Text);
+            UpdateUpDownButtonsState();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             shoppingListCheckedListBox.Items.RemoveAt(shoppingListCheckedListBox.SelectedIndex);
+            UpdateUpDownButtonsState();
         }
 
         private void DownButton_Click(object sender, EventArgs e)
@@ -40,6 +42,7 @@ namespace ShoppingList
             UpdateUpDownButtonsState();
             UpdateDeleteButtonState();
         }
+
 
         private void UpButton_Click(object sender, EventArgs e)
         {
@@ -107,6 +110,7 @@ namespace ShoppingList
                 downButton.Enabled = selectedIndex != shoppingListCheckedListBox.Items.Count - 1;
             }
         }
+
         private void UpdateDeleteButtonState()
         {
             int selectedIndex = shoppingListCheckedListBox.SelectedIndex;

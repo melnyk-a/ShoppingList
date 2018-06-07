@@ -59,7 +59,7 @@ namespace ShoppingList
                 {
                     canAdd = !ContainInTextBox(
                         new ShoppingItemWrapper(
-                            new ShoppingItem(value)));
+                            new ShoppingItem(RemoveSpaces(value))));
                 }
             }
             return canAdd;
